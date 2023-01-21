@@ -85,6 +85,21 @@ app.post('/login', async(req, res)=>{
             message: "Email and password are required"
         })
     }
+
+    const existingUser = await User.findOne({email: email, password: password});
+    if(!existingUser){
+        return res.json({
+            success: true,
+            message: "Login successful",
+            data: existingUser
+        })
+    }
+    else{
+        return res.json({
+            success: false,
+            message: "Invalid email or password"
+        })
+    }
 })
 
 // api routes ends here
