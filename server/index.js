@@ -19,6 +19,20 @@ mongoose.connect(process.env.MONGODB_URL, ()=>{
 app.post('/signup', async(req, res)=>{
     const { name, phone, email, password, role} = req.body;
     
+    // validation to check if all fields are filled ends here
+
+    // validation to check if email already exists starts here
+
+    const existingUser = await User.findOne({email: email});
+    if(existingUser){
+        return res.json({
+            success: false,
+            message: "Email already exists"
+        })
+    }
+
+    // validation to check if email already exists ends here
+    
     const emptyFields = [];
     if(!name) emptyFields.push('name');
     if(!phone) emptyFields.push('phone');
