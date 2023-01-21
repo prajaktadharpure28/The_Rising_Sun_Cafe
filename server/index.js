@@ -32,7 +32,19 @@ app.post('/signup', async(req, res)=>{
     }
 
     // validation to check if email already exists ends here
-    
+
+     // validation to check if phone already exists starts here
+
+     const existingUserPhone = await User.findOne({ phone: phone });
+     if(existingUserPhone){
+         return res.json({
+             success: false,
+             message: "Phone already exists"
+         })
+     }
+ 
+     // validation to check if phone already exists ends here
+     
     const emptyFields = [];
     if(!name) emptyFields.push('name');
     if(!phone) emptyFields.push('phone');
