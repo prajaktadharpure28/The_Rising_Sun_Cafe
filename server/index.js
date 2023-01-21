@@ -44,7 +44,7 @@ app.post('/signup', async(req, res)=>{
      }
  
      // validation to check if phone already exists ends here
-     
+
     const emptyFields = [];
     if(!name) emptyFields.push('name');
     if(!phone) emptyFields.push('phone');
@@ -73,6 +73,18 @@ app.post('/signup', async(req, res)=>{
         message: "User created successfully",
         data: savedUser
     })
+})
+
+
+app.post('/login', async(req, res)=>{
+    const { email, password } = req.body;
+
+    if(!email || !password){
+        return res.json({
+            success: false,
+            message: "Email and password are required"
+        })
+    }
 })
 
 // api routes ends here
