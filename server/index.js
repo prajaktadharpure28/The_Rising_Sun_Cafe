@@ -114,10 +114,25 @@ app.post("/createFoodItem", async(req, res)=>{
     })
 
     const savedFoodItem = await foodItem.save();
+
     res.json({
         success: true,
         message: "Food Item created successfully",
         data: savedFoodItem
+    })
+})
+
+app.get("/foodItemsByCategory", async(req, res)=>{
+    const {category} = req.query;
+
+    const foodItems = await FoodItem.find({
+        category: category
+    })
+
+    res.json({
+        success: true,
+        message: "Food Items fetched successfully",
+        data: foodItems
     })
 })
 
