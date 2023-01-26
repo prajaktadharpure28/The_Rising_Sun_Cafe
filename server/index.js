@@ -128,7 +128,7 @@ app.get("/foodItemsByCategory", async(req, res)=>{
     const {category} = req.query;
 
     const foodItems = await FoodItem.find({
-        category: category
+        category: {$regex: category, $options: 'i'}
     })
 
     res.json({
