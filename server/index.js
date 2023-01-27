@@ -154,6 +154,24 @@ app.get("/foodItems", async(req, res)=>{
     })
 })
 
+app.post("/createTable", async(req, res)=>{
+    const {tableNumber, occupied, occupiedBy} = req.body;
+
+    const table = new Table({
+        tableNumber: tableNumber,
+        occupied: occupied,
+        occupiedBy: occupiedBy
+    })
+
+    const savedTable = await table.save();
+
+    res.json({
+        success: true,
+        message: "Table created successfully",
+        data: savedTable
+    })
+})
+
 // api routes ends here
 
 app.listen(PORT, ()=>{
