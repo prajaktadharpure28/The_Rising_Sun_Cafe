@@ -5,6 +5,7 @@ dotenv.config();
 
 import User from './models/User.js';
 import FoodItem from './models/FoodItem.js';
+import Table from './models/Table.js';
 
 const app = express();
 app.use(express.json());
@@ -155,12 +156,19 @@ app.get("/foodItems", async(req, res)=>{
 })
 
 app.post("/createTable", async(req, res)=>{
-    const {tableNumber, occupied, occupiedBy} = req.body;
+    const {tableNumber} = req.body;
+
+    const existingTable = await Table.findOne({ tableNumber: tableNumber });
+    if (existingTable) {
+        return res.json({
+            success: false,
+            message: "Table already exists"
+        })
+    }
 
     const table = new Table({
         tableNumber: tableNumber,
-        occupied: occupied,
-        occupiedBy: occupiedBy
+        occupied: false
     })
 
     const savedTable = await table.save();
