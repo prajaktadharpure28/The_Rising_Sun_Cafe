@@ -221,6 +221,15 @@ app.post("/unbookTable", async(req, res)=>{
     })
 })
 
+app.get("/availableTable", async (req, res)=>{
+    const availableTables = await Table.find({ occupied: false });
+
+    res.json({
+        success: true,
+        message: "Available tables fetched successfully",
+        data: availableTables
+    })
+})
 // api routes ends here
 
 app.listen(PORT, ()=>{
