@@ -203,6 +203,24 @@ app.post("/bookTable", async(req, res)=>{
     })
 })
 
+app.post("/unbookTable", async(req, res)=>{
+    const { tableNumber } = req.body;
+    
+    const existingTable = await Table.findOne({ tableNumber: tableNumber });
+   
+    if(existingTable){
+        existingTable.occupied = false;
+        existingTable.occupiedBy = null;
+        await existingTable.save();
+    }
+
+    res.json({
+        success: true,
+        message: "Table unbooked successfully",
+        data: existingTable
+    })
+})
+
 // api routes ends here
 
 app.listen(PORT, ()=>{
