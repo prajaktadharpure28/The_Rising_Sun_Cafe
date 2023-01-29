@@ -268,6 +268,18 @@ app.get("/order", async (req, res)=>{
     })
 })
 
+app.get("/ordersForUser", async(req, res)=>{
+    const {UserId} = req.query;
+
+    const orders = await Order.find({UserId: UserId});
+
+    res.json({
+        success: true,
+        message: "Orders fetched successfully",
+        data: orders
+    })
+})
+
 // api routes ends here
 
 app.listen(PORT, ()=>{
