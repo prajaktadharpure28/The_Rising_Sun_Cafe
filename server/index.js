@@ -6,6 +6,7 @@ dotenv.config();
 import User from './models/User.js';
 import FoodItem from './models/FoodItem.js';
 import Table from './models/Table.js';
+import Order from './models/Order.js';
 
 const app = express();
 app.use(express.json());
@@ -230,6 +231,32 @@ app.get("/availableTable", async (req, res)=>{
         data: availableTables
     })
 })
+
+app.post("/orderFoodItems", async(req, res)=>{
+    const { UserId, tableNumber, items} = req.body;
+
+    // count total order
+
+    const totalOrders = await Order.countDocuments();
+    const orderId = totalOrders + 1;
+
+    const order = new Order({
+        orderId: orderId,
+        UserId: UserId,
+        tableNumber: tableNumber,
+        items: items
+})
+
+    const savedOrder = await order.save();
+
+    res.json({
+        success: true,
+        message: "Food Items ordered successfully",
+        data: savedOrder
+    })
+})
+
+
 // api routes ends here
 
 app.listen(PORT, ()=>{
