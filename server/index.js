@@ -256,6 +256,17 @@ app.post("/orderFoodItems", async(req, res)=>{
     })
 })
 
+app.get("/order", async (req, res)=>{
+    const {orderId} = req.query;
+
+    const order = await Order.findOne({orderId: orderId});
+
+    res.json({
+        success: true,
+        message: "Order fetched successfully",
+        data: order
+    })
+})
 
 // api routes ends here
 
