@@ -1,19 +1,23 @@
-import React, { useState } from 'react';
-import './Signup.css';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import swal from "sweetalert";
+
 import headerImage from "./img/signup-girl.png";
-import { useNavigate } from 'react-router-dom';
+import {currentUser} from './../../util/currentUser'
+import './Signup.css';
 
 function Signup() {
-
-  const navigate = useNavigate();
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState('user')
+
+  useEffect(() => {
+    if(currentUser){
+     window.location.href="/"
+    }
+  }, [])
 
   async function signupUser() {
     const response = await axios.post('/signup', {
@@ -25,19 +29,20 @@ function Signup() {
     })
     console.log(response.data)
     if (response.data.success) {
-      swal("Signup Successfully !!");
-      swal({
+      await swal({
         title: "🏆",
-        text: "Signup Successfully !!",
+        text: response.data.message,
         icon: "success",
-      })
-      navigate('/login');
+        button: "OK",
+      });
+      window.location.href = '/login'
     }
     else {
       swal({
         title: "😥",
         text: response.data.message,
         icon: "warning",
+        button: "OK",
       })
     }
 
@@ -74,7 +79,7 @@ function Signup() {
                     className="form-control"
                     id="Name"
                     placeholder='FullName'
-                    value={name} onChange={(e) => { setName(e.target.value) }}
+                    value={name} onChange={(e) =>{ setName(e.target.value)}}
                   />
                 </div>
                 <div className="mb-3">
@@ -83,7 +88,7 @@ function Signup() {
                     className="form-control"
                     id="email"
                     placeholder="Email"
-                    value={email} onChange={(e) => { setEmail(e.target.value) }}
+                    value={email} onChange={(e) =>{ setEmail(e.target.value)}}
                   />
                 </div>
                 <div className="mb-3">
@@ -92,7 +97,7 @@ function Signup() {
                     className="form-control"
                     id="phone"
                     placeholder="Mobile Number"
-                    value={phone} onChange={(e) => { setPhone(e.target.value) }}
+                    value={phone} onChange={(e) => {setPhone(e.target.value)}}
                   />
                 </div>
                 <div className="mb-3">
@@ -101,7 +106,7 @@ function Signup() {
                     className="form-control"
                     id="password"
                     placeholder="Password"
-                    value={password} onChange={(e) => { setPassword(e.target.value) }}
+                    value={password} onChange={(e) => {setPassword(e.target.value) }}
                   />
                 </div>
                   <button className="signup-page-btn w-100 mb-5" type="button" onClick={signupUser}>

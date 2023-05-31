@@ -90,7 +90,7 @@ app.post('/login', async(req, res)=>{
     }
 
     const existingUser = await User.findOne({email: email, password: password});
-    if(!existingUser){
+    if(existingUser){
         return res.json({
             success: true,
             message: "Login successful",

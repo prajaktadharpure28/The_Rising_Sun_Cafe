@@ -19,20 +19,18 @@ function Login() {
   async function checkLogin() {
     const response = await axios.post('/login', {
       email: email,
-      password: password
+      password: password,
     })
-
-    console.log(response.data)
-    if (response.data.success) {
+    console.log(response.data) 
+      if (response.data.success) {
       await swal({
         title: "✅",
-        text: "Login Successfully !!",
+        text: response.data.message,
         icon: "success",
         button: "Ok!",
-      })
+      });
       localStorage.setItem('currentUser', JSON.stringify(response.data.data));
       window.location.href = "/"
-
     }
     else {
       await swal({
@@ -61,8 +59,8 @@ function Login() {
                     className="form-control"
                     id="email"
                     placeholder="Email"
-                    value={email} onChange={(e) => { setEmail(e.target.value) }}
-                  />
+                    value={email} onChange={(e) =>  {setEmail(e.target.value) } }
+                    />
                 </div>
                 <div className="mb-3">
                   <input
@@ -70,7 +68,7 @@ function Login() {
                     className="form-control"
                     id="password"
                     placeholder="Password"
-                    value={password} onChange={(e) => { setPassword(e.target.value) }}
+                    value={password} onChange={(e) => {setPassword(e.target.value) }}
                   />
                 </div>
                 <button className="login-page-btn w-100 mb-3" type="button" onClick={checkLogin}>
