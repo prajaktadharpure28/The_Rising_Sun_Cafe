@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import swal from "sweetalert";
 import headerImage from './img/login.png';
+import Navbar from '../../components/Navbar/Navbar';
 
 import { currentUser } from './../../util/currentUser'
 import "./Login.css"
@@ -47,10 +48,11 @@ function Login() {
 
   return (
     <>
+    <Navbar user={currentUser?.name}/>
       <div className='container mt-5'>
         <div className='login-card'>
           <div className='row'>
-            <h2 className='text-center mt-5'>Login</h2>
+            <h2 className='brand-name text-center mt-5'>Login</h2>
             <div className='col-md-6 mt-3'>
               <form>
                 <div className="mb-3">
@@ -74,6 +76,10 @@ function Login() {
                 <button className="login-page-btn w-100 mb-3" type="button" onClick={checkLogin}>
                   <i className="fa-solid fa-right-to-bracket"></i> Login
                 </button>
+
+                <div className="text-center">
+                  <a className='brand-name-1' href="/signup">Don't have an account? Register</a>
+                </div>
               </form>
             </div>
 

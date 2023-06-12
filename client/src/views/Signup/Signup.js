@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import swal from "sweetalert";
-
 import headerImage from "./img/signup-girl.png";
+import Navbar from '../../components/Navbar/Navbar'
+
 import {currentUser} from './../../util/currentUser'
 import './Signup.css';
 
@@ -54,11 +55,12 @@ function Signup() {
 
   return (
     <>
+    <Navbar user={currentUser?.name}/>
       <div className='container mt-5'>
         <div className=' card-signup'>
           <div className='row'>
-            <h2 className='text-center mt-3'>The Rising Sun Cafe</h2>
-            <h4 className="text-center mt-2 ">
+            <h2 className='brand-name text-center mt-3'>The Rising Sun Cafe</h2>
+            <h4 className="brand-name-1 text-center mt-2 ">
               Sippin' on dreams
             </h4>
             <div className='col-md-6'>
@@ -110,8 +112,11 @@ function Signup() {
                   />
                 </div>
                   <button className="signup-page-btn w-100 mb-5" type="button" onClick={signupUser}>
-                    <i className="fa-solid fa-right-to-bracket"></i> Signup
+                    <i className="fa-solid fa-right-to-bracket"></i> Signup 
                   </button>
+                <div className="text-center">
+                  <a className='brand-name-1' href="/login">Already have an account? Login</a>
+                </div>
               </form>
             </div>
           </div>
