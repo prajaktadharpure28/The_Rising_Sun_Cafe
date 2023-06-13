@@ -22,11 +22,11 @@
     width: 120px;
     border-radius: 30px;
     border: none;
-    background-color: #299DF9;
-    box-shadow: 0px 4px 6px -2px rgb(78, 87, 134);
+    background-color: #8a16b8;
+    box-shadow: 0px 4px 6px -2px rgb(97, 62, 110);
 }
 
 .login-page-btn:hover{
-    background-color: #2036fc;
+    background-color: #8a16b8;
     box-shadow: 0px 4px 6px -2px rgb(78, 87, 134);
 }

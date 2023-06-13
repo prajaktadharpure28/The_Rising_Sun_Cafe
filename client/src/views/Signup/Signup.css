@@ -24,35 +24,35 @@
     width: 120px;
     border-radius: 30px;
     border: none;
-    background-color: #299DF9;
+    background-color: #8a16b8;
     box-shadow: 0px 4px 6px -2px rgb(78, 87, 134);
 }
 .signup-page-btn:hover{
-    background-color: #2036fc;
-    box-shadow: 0px 4px 6px -2px rgb(78, 87, 134);
+    background-color: #8a16b8;
+    box-shadow: 0px 4px 6px -2px rgb(103, 66, 117);
 }
 .brand-name{
     font-family: 'Lobster', cursive;
     font-size: 2rem;
-    color: #299DF9;
+    color: #8a16b8;
     text-decoration: none;
     margin-left: 10px;
     margin-right: 10px;
 }
 
 .brand-name:hover{
-    color: #2036fc;
+    color: #8a16b8;
     text-decoration: none;
 }
 
 .brand-name-1{
     font-family: 'Lobster', cursive;
-    color: #299DF9;
+    color: #8a16b8;
     text-decoration: none;
     margin-left: 10px;
     margin-right: 10px;
 }
 .brand-name-1:hover{
-    color: #2036fc;
+    color: #8a16b8;
     text-decoration: none;
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import swal from "sweetalert";
-import headerImage from "./img/signup-girl.png";
+import headerImage from "./img/signup.png";
 import Navbar from '../../components/Navbar/Navbar'
 
 import {currentUser} from './../../util/currentUser'

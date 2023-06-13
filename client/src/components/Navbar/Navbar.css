@@ -44,3 +44,13 @@
     margin-left: 10px;
     margin-right: 10px;
 }
+
+#navbarSupportedContent ul li a{
+    font-family: 'Lobster', cursive;
+    font-size: 1.5rem;
+    color: #8a16b8;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
