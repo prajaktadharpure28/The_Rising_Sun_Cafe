@@ -1,0 +1,24 @@
+.input-search{
+    width: 50%;
+    height: 40px;
+    border-radius: 30px;
+    border: 1px solid #ecc6f8;;
+    padding: 0 10px;
+    font-size: 16px;
+    outline: none;
+    align-items: center;
+    text-align: center;
+    margin: 10px 25% auto;
+    display: inline-block;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 6px -2px #613e6e;
+    transition: all 0.3s ease-in-out;
+    &:focus{
+        border-color: none;
+    }
+}
+
+.input-search:hover{
+    border-color: #de93fa;
+    box-shadow: 0px 4px 6px -2px #de93fa;
+}

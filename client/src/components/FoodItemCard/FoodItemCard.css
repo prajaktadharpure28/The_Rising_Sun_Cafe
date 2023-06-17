@@ -1,0 +1,18 @@
+.food-item-card{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.food-item-card-header-img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
