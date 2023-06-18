@@ -1,6 +1,6 @@
 import React from "react";
 import "./SideBar.css";
-import logo from "../../components/SideBar/img/logo.png";
+import logo from "../../components/SideBar/img/logo.png"
 import { FaCog, FaUser, FaSignOutAlt,} from "react-icons/fa";
 import { IoChatbubbleEllipsesSharp, IoRestaurant } from "react-icons/io5";
 import { IoIosHelpCircle } from "react-icons/io";

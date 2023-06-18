@@ -3,12 +3,12 @@ import axios from 'axios'
 import './Home.css'
 import FoodItemCard from './../../components/FoodItemCard/FoodItemCard'
 import Navbar from './../../components/Navbar/Navbar'
+import SideBar from "./../../components/SideBar/SideBar"
 
 import {loginRequired} from './../../util/loginRequired'
 import {currentUser} from './../../util/currentUser'
 
 function Home() {
-
   const [searchText, setSearchText] = useState('')
   const [currentFoodItems, setAllFoodItems] = useState([])
 
@@ -35,13 +35,6 @@ function Home() {
    }
   }, [searchText])
 
-
-  function logOut() {
-    localStorage.removeItem('currentUser');
-    window.location.href = '/login'
-  }
-
-
   useEffect(()=>{
       loginRequired()
   }, [])
@@ -55,7 +48,7 @@ function Home() {
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}/>
       </div>
-
+      <SideBar />
       <div className='food-items-result'>
         <div class="row">
         {
