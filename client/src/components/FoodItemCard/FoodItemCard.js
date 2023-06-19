@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import './FoodItemCard.css'
-import swal from 'sweetalert'
+import Swal from 'sweetalert2'
 
 function FoodItemCard({ category, description, imgUrl, price, title }) {
 
@@ -19,7 +19,7 @@ function FoodItemCard({ category, description, imgUrl, price, title }) {
 
    localStorage.setItem('list', JSON.stringify(existingList))
 
-   await swal({
+   await Swal.fire({
       title: "Added to List",
       icon: "success",
    })

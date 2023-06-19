@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import swal from "sweetalert";
+import Swal from "sweetalert2";
 import headerImage from "./img/signup.png";
 import Navbar from '../../components/Navbar/Navbar'
 
@@ -30,7 +30,7 @@ function Signup() {
     })
     console.log(response.data)
     if (response.data.success) {
-      await swal({
+      await Swal.fire({
         title: "🏆",
         text: response.data.message,
         icon: "success",
@@ -39,7 +39,7 @@ function Signup() {
       window.location.href = '/login'
     }
     else {
-      swal({
+      Swal.fire({
         title: "😥",
         text: response.data.message,
         icon: "warning",

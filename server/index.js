@@ -17,8 +17,6 @@ mongoose.connect(process.env.MONGODB_URL, ()=>{
     console.log('Connected to MongoDB');
 })
 
-// api routes starts here
-
 app.post('/signup', async(req, res)=>{
     const { name, phone, email, password, role} = req.body;
     

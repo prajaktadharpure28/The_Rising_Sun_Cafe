@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Swal from 'sweetalert2'
 import "./Navbar.css"
 import { Link } from 'react-router-dom'
 import { currentUser } from './../../util/currentUser'
@@ -8,6 +9,36 @@ function Navbar({ user }) {
     localStorage.removeItem('currentUser')
     window.location.href = '/login'
   }
+  // sweetalert for logout
+
+  async function logoutAlert() {
+    await Swal.fire({
+      title: "Are you sure?",
+      text: "You want to logout?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, Logout!",
+      cancelButtonText: "No, cancel!",
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOut()
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire({
+          title: "Cancelled",
+          text: "Logout cancelled :)",
+          icon: "error",
+          timer: 2000,
+          timerProgressBar: true,
+          showConfirmButton: false,
+        });
+
+      }
+    });
+
+  }
+
+
 
   function Login() {
     window.location.href = '/login'
@@ -45,34 +76,31 @@ function Navbar({ user }) {
             </ul>
 
             {currentUser && (
-            <form class="d-flex align-items-center">
-            
-              <img
-                src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png"
-                alt="profile"
-                className="profile-icon"
-              />
-              <h4 className='text'>{user}</h4>
-            </form>
+              <form class="d-flex align-items-center">
+
+                <img
+                  src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png"
+                  alt="profile"
+                  className="profile-icon"
+                />
+                <h4 className='text'>{user}</h4>
+              </form>
             )}
-            
-           {!currentUser && (
-            <button type="button" className='logout-btn' onClick={Signup}>
-              Signup
-            </button>
+
+            {!currentUser && (
+              <button type="button" className='logout-btn' onClick={Signup}>
+                Signup
+              </button>
             )}
             {!currentUser && (
-            <button type="button" className='logout-btn' onClick={Login}>Login</button>
+              <button type="button" className='logout-btn' onClick={Login}>Login</button>
             )}
-
 
             {currentUser && (
-            <button type="button" className='logout-btn' onClick={logOut}>Logout</button>
+              <button type="button" className='logout-btn' onClick={logoutAlert}>
+                Logout
+              </button>
             )}
-
-
-           
-            
           </div>
         </div>
       </nav>
