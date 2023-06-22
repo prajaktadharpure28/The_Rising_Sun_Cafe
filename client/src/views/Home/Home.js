@@ -1,65 +1,36 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
+import React, {useEffect} from 'react'
+import Navbar from '../../components/Navbar/Navbar'
+import About from './../Home/about.jpg'
 import './Home.css'
-import FoodItemCard from './../../components/FoodItemCard/FoodItemCard'
-import Navbar from './../../components/Navbar/Navbar'
-import SideBar from "./../../components/SideBar/SideBar"
 
-import {loginRequired} from './../../util/loginRequired'
-import {currentUser} from './../../util/currentUser'
+import { loginRequired } from './../../util/loginRequired'
 
 function Home() {
-  const [searchText, setSearchText] = useState('')
-  const [currentFoodItems, setAllFoodItems] = useState([])
-
-  async function fetchAllItems(){
-    console.log('fetching all items')
-    const response = await axios.get('/allFoodItems')
-    console.log(response.data.data)
-    setAllFoodItems(response.data.data)
-  }
-
-  async function fetchSpecificItems(){
-   console.log('fetching specific items')
-   const response = await axios.get(`/foodItems?title=${searchText}`)
-   console.log(response.data.data)
-   setAllFoodItems(response.data.data)
-  }
-
-  useEffect(()=>{
-   if(searchText.length > 0){
-      fetchSpecificItems()
-   }
-   else{
-      fetchAllItems()
-   }
-  }, [searchText])
-
-  useEffect(()=>{
-      loginRequired()
-  }, [])
-
-  return (
-    <div>
-      <Navbar user={currentUser?.name}/>
-
-      <div className='search-container'>
-        <input type="text" placeholder='Search' className='input-search'
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}/>
-      </div>
-      <SideBar />
-      <div className='food-items-result'>
-        <div class="row">
-        {
-         currentFoodItems?.map((foodItem, index)=>{
-           return (<FoodItemCard description={foodItem.description} category={foodItem.category} title={foodItem.title} price={foodItem.price} imgUrl={foodItem.imgUrl}  key={index}/>)
-         })
-        }
+    // useEffect(() => {
+    //     loginRequired()
+    //   }, [])
+    return (
+        <div>
+            <Navbar />
+            <section id="hero" class="hero d-flex align-items-center section-bg">
+                <div class="container">
+                    <div class="row justify-content-between gy-5">
+                        <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
+                            <h2 data-aos="fade-up">Enjoy Your Healthy Delicious Food</h2>
+                            <p data-aos="fade-up" data-aos-delay="100">Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
+                            <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+                                <a href="#book-a-table" class="btn-book-a-table">Book a Table</a>
+                                <a href="/dashboard" class="btn-menu">Our Menu</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
+                            <img src={About} class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300" />
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
-      </div>
-    </div>
-  )
+    )
 }
 
 export default Home

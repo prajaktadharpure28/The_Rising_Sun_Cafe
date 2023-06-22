@@ -1,3 +1,29 @@
+.brand-name{
+    font-family: 'Satisfy', cursive;
+    font-size: 2rem;
+    color: #8a16b8;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.brand-name:hover{
+    color: #8a16b8;
+    text-decoration: none;
+}
+
+.brand-name-1{
+    font-family: 'Satisfy', cursive;
+    color: #8a16b8;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.brand-name-1:hover{
+    color: #8a16b8;
+    text-decoration: none;
+}
+
 .login-card{
     padding: 20px;
     margin-top: 85px;
@@ -15,18 +41,29 @@
     margin-right: auto;
 }
 
-.login-page-btn{
-    font-family: 'Lobster', cursive;
+.btn{
+    border-radius: 30px;
+    border: 1px solid #ecc6f8;;
     padding: 5px;
     margin: 3px;
     width: 120px;
-    border-radius: 30px;
-    border: none;
+    font-size: 20px;
+    font-family: 'Satisfy', cursive;
+    outline: none;
+    align-items: center;
     background-color: #8a16b8;
-    box-shadow: 0px 4px 6px -2px rgb(97, 62, 110);
+    text-align: center;
+    color: white;
+    display: inline-block;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 6px -2px #613e6e;
+    transition: all 0.3s ease-in-out;
+    &:focus{
+        border-color: none;
+    }
 }
-
-.login-page-btn:hover{
-    background-color: rgb(209, 124, 243);
-    box-shadow: 0px 4px 6px -2px rgb(78, 87, 134);
+.btn:hover{
+    color: #fff;
+    border-color: #de93fa;
+    box-shadow: 0px 4px 6px -2px #de93fa;
 }

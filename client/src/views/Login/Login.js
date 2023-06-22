@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Swal from "sweetalert2";
-import headerImage from './img/login.png';
+import headerImage from './../../assets/login.png';
 import Navbar from '../../components/Navbar/Navbar';
 
 import { currentUser } from './../../util/currentUser'
@@ -13,13 +13,13 @@ function Login() {
 
   useEffect(() => {
     if (currentUser) {
-      window.location.href = "/"
+      window.location.href = "/dashboard"
     }
   }, [])
 
   async function checkLogin() {
     const response = await axios.post('/login', {
-      email: email,
+      email: email, 
       password: password,
     })
     console.log(response.data) 
@@ -73,7 +73,7 @@ function Login() {
                     value={password} onChange={(e) => {setPassword(e.target.value) }}
                   />
                 </div>
-                <button className="login-page-btn w-100 mb-3" type="button" onClick={checkLogin}>
+                <button className="login-page-btn w-100 mb-3 btn m-2" type="button" onClick={checkLogin}>
                   <i className="fa-solid fa-right-to-bracket"></i> Login
                 </button>
 
