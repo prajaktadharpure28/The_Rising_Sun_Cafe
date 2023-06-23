@@ -1,18 +1,199 @@
-.food-item-card{
-    width: 100%;
-    margin-top: 20px;
+.card-container{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    width: 100%;  
+    flex-wrap: wrap;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 5px;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    }
+    .card{
+    width: 100vh;
+    height: 100%;
+    border-radius: 5px;
+    border-bottom-color: #8a16b8;
+    border-bottom-width: 4px;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+    background-color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 10px;
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+    align-items: center;
+    padding: 6px;
     transition: all 0.3s ease-in-out;
-}
-
-.food-item-card-header-img{
-    width: 100%;
-    height: 200px;
+    cursor: pointer;
+    margin: 5px;
+    }
+    .card:hover{
+      box-shadow: 0 0 4px 0 #ecc6f8;
+      transform: scale(1.02);
+    }
+    .card-img-top{
+      width: 100%;
+    height: 170px;
     object-fit: cover;
-}
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 0 0 1px 0 #8a16b8;
+    }
+
+    .card-body{
+      width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    }
+    .card-title{
+      font-size: 1.2rem;
+      font-weight: 600;
+      font-family: 'Satisfy', cursive;
+      color: #000;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .card-text {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #000;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .card-desc {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #000;
+      text-align: center;
+      margin-bottom: 10px;
+      font-style: italic;
+      font-family: 'Satisfy', cursive;
+    }
+    
+    .card-price {
+      font-size: 2rem;
+      font-weight: 600;
+      font-family: 'Satisfy', cursive;
+      color: #000;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .card-btn {
+      width: 100%;
+      height: 40px;
+      border-radius: 10px;
+      background-color: #8a16b8;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .card-btn:hover {
+      background-color: #fff;
+      color:#8a16b8;
+      border: 1px solid #8a16b8;
+    }
+    
+    .qty-count {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px;
+    }
+    
+    .qty-change-btn {
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      padding: 0 15px;
+    }
+
+    .card-btn{
+      font-family: 'Satisfy', cursive;
+      margin-top: auto!important;
+      cursor:pointer;
+      border-radius: 30px;
+      border: 1px solid #ecc6f8;;
+      /* padding: 5px; */
+      font-size: 12px;
+      outline: none;
+      align-items: center;
+      background-color: #8a16b8;
+      text-align: center;
+      color: white;
+      display: inline-block;
+      box-sizing: border-box;
+      box-shadow: 0px 4px 6px -2px #613e6e;
+      transition: all 0.3s ease-in-out;
+      &:focus{
+          border-color: none;
+      }
+    }
+    .card-btn:hover{
+      border-color: #de93fa;
+      box-shadow: 0px 4px 6px -2px #de93fa;
+    }
+    
+    @media screen and (max-width: 768px) {
+    .card-container {
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .card {
+      width: 100%;
+      margin: 10px 0;
+    }
+    
+    .card-img-top {
+      width: 100%;
+      height: 200px;
+    }
+    
+    .card-body {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .card-title {
+      font-size: 1.2rem;
+    }
+    
+    .card-text {
+      font-size: 1rem;
+    }
+    
+    .card-desc {
+      font-size: 1rem;
+    }
+    
+    .card-price {
+      font-size: 1.2rem;
+    }
+    
+    .card-btn {
+      width: 100%;
+      height: 40px;
+      font-size: 1rem;
+    }
+    
+    .qty-count {
+      margin: 10px 0;
+    }
+    
+    .qty-change-btn {
+      padding: 0 10px;
+    }
+    }

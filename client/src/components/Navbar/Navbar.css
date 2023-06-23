@@ -1,50 +1,38 @@
-.navbar{
-    box-shadow:  0px 4px 6px -2px rgb(216, 175, 231);
-    padding: 10px;
+.navbar {
+    box-shadow: 0px 4px 6px -2px rgb(216, 175, 231);
+    padding: 8px;
     margin-bottom: 8px;
 }
 
-.nav-bar{
-    font-family: 'Lobster', cursive;
+.nav-bar {
+    font-family: 'Satisfy', cursive;  
     font-size: 2rem;
     color: #8a16b8;
     text-decoration: none;
     margin-left: 10px;
     margin-right: 10px;
 }
-.nav-item{
-    font-family: 'Lobster', cursive;
+
+.nav-item {
+    font-family: 'Satisfy', cursive;
     font-size: 1.5rem;
     color: #8a16b8;
     text-decoration: none;
     margin-left: 10px;
     margin-right: 10px;
 }
-.text{
-    font-family: 'Lobster', cursive;
+
+.profile-name {
+    font-family: 'Satisfy', cursive;
     font-size: 1.5rem;
-    color:#8a16b8;
-    text-decoration: none;
+    color: #8a16b8;
+    text-decoration: none; 
     margin-left: 10px;
-    margin-right: 10px;
-}
-.logout-btn{
-    font-family: 'Lobster', cursive;
-    padding: 5px;
-    margin: 3px;
-    width: 120px;
-    border-radius: 30px;
-    border: none;
-    background-color: #8a16b8;
-    box-shadow: 0px 4px 6px -2px rgb(78, 87, 134);
+    margin-right: 10px; 
+    padding-top: .5em;
 }
 
-.logout-btn:hover{
-    background-color: rgb(209, 124, 243);
-    box-shadow: 0px 4px 6px -2px rgb(160, 119, 177);
-}
-
-.profile-icon{
+.profile-icon {
     width: 40px;
     border-radius: 50%;
     margin-left: 10px;
@@ -52,16 +40,121 @@
     box-shadow: 0px 4px 6px -2px rgb(160, 119, 177);
 }
 
-.profile-icon:hover{
+.profile-icon:hover {
     box-shadow: 0px 4px 6px -2px rgb(232, 189, 250);
 }
 
-#navbarSupportedContent ul li a{
-    font-family: 'Lobster', cursive;
+#navbarSupportedContent ul li a {
+    font-family: 'Satisfy', cursive;
     font-size: 1.5rem;
     color: #8a16b8;
     text-decoration: none;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.logout-btn {
+    width: 100px;
+    border-radius: 30px;
+    border: 1px solid #ecc6f8;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Satisfy', cursive;
+    outline: none;
+    align-items: center;
+    background-color: #8a16b8;
+    color: white;
+    text-align: center;
+    margin: 10px 10px 10px 50px;
+    display: inline-block;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 6px -2px #613e6e;
+    transition: all 0.3s ease-in-out;
+
+    &:focus {
+        border-color: none;
+    }
+}
+
+.logout-btn:hover {
+    background-color: #fff;
+    color: #8a16b8;
+    border: 1px solid #8a16b8;
+}
+
+.cart-icon{
+    width: 40px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px -2px rgb(160, 119, 177);
+    background-color: white;
+}
+
+.cart-icon:hover{
+    box-shadow: 0px 4px 6px -2px rgb(232, 189, 250);
+}
+
+.cart-btn{
+    border-radius: 30px;
+    border: none;
+    padding: 3px;
+    outline: none; 
+    align-items: center;
+    background-color: #8a16b8;
+    text-align: center;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+
+    &:focus {
+        border-color: none;
+    }
+}
+
+.logo{
+    width: 50px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 6px -2px rgb(160, 119, 177);
+}
+
+.navbar-toggler{
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.navbar-toggler:hover{
+    color: transparent;
+}
+
+/* navbar toggler responsiveness */
+
+@media (max-width: 768px) {
+    .navbar{
+        box-shadow: none;
+    }
+    .navbar-toggler {
+        margin-right: 2px;
+        margin-left: 2px;
+    }
+    .text{
+        left: 2;
+        position: relative;
+    }
+}
+
+/* 384 */
+
+@media (max-width: 384px) {
+    .navbar{
+        box-shadow: none;
+    }
+    .navbar-toggler {
+        margin-right: 0px;
+        position: absolute !important;
+        right: 0;
+    }
+    .text{
+        left: 0;
+        position: relative;
+    }
 }
 
