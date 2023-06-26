@@ -19,7 +19,7 @@ function Home() {
                             <h2 data-aos="fade-up">Enjoy Your Healthy Delicious Food</h2>
                             <p data-aos="fade-up" data-aos-delay="100">Sed autem laudantium dolores. Voluptatem itaque ea consequatur eveniet. Eum quas beatae cumque eum quaerat.</p>
                             <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-                                <a href="#book-a-table" class="btn-book-a-table">Book a Table</a>
+                                <a href="/tables" class="btn-book-a-table">Book a Table</a>
                                 <a href="/dashboard" class="btn-menu">Our Menu</a>
                             </div>
                         </div>

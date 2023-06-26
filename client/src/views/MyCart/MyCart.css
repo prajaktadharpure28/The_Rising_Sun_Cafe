@@ -1,0 +1,105 @@
+.container{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    /* margin: 10px 0px; */
+}
+
+.my-cart-heading{
+    font-size: 30px;
+    font-weight: 600;
+    margin: 10px 0px;
+    text-align: center;
+}
+.my-cart-container{
+    margin: 20px 0px;
+    padding: 5% 4%;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color:#fff;
+    box-shadow: -7px 8px 9px rgba(0, 0
+    , 0, 0.1);
+}
+.table {
+    border: none;
+}
+.tab-col{
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+    padding: 10px 0px;
+}
+.form-control{
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 0px;
+    box-shadow: none;
+    padding: 0px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    background-color: transparent;
+}
+.form-control:focus{
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    border-radius: 0px;
+    box-shadow: none;
+    padding: 0px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    background-color: transparent;
+}
+.btn{
+    border-radius: 30px;
+    border: 1px solid #ecc6f8;
+    font-size: 15px;
+    font-family: 'Satisfy', cursive;
+    outline: none;
+    align-items: center;
+    background-color: #8a16b8;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 6px -2px #613e6e;
+    transition: all 0.3s ease-in-out;
+
+    &:focus {
+        border-color: none;
+    }
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #8a16b8;
+    border: 1px solid #8a16b8;
+}
+
+.btn-remove{
+    border-radius: 30px;
+    border: 1px solid #ecc6f8;
+    font-size: 15px;
+    font-family: 'Satisfy', cursive;
+    outline: none;
+    align-items: center;
+    background-color: #8a16b8;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 6px -2px #613e6e;
+    transition: all 0.3s ease-in-out;
+
+    &:focus {
+        border-color: none;
+    }
+}
+
+.btn-remove:hover {
+    background-color: rgb(250, 137, 137);
+    color: #fbfafc;
+    border: 1px solid #f9f7fa;
+}

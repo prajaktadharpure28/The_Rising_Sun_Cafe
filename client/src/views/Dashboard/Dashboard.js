@@ -1,16 +1,29 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import './Dashboard.css'
+import axios from 'axios'
 import FoodItemCard from './../../components/FoodItemCard/FoodItemCard'
-import Navbar from './../../components/Navbar/Navbar'
 import FoodItemList from './../../util/FoodItemList'
+import CartNavBar from '../../components/Cart/CartNavBar';
+import Cart from '../../components/Cart/Cart';
 
+import { tableBookingRequired } from '../../util/tableBookingRequried';
 import { loginRequired } from './../../util/loginRequired'
 import { currentUser } from './../../util/currentUser'
+
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root');
 
 function Dashboard() {
   const [searchText, setSearchText] = useState('')
   const [currentFoodItems, setAllFoodItems] = useState([])
+
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  function toggleModalCart() {
+    setIsCartOpen(!isCartOpen);
+    console.log('Button Clicked');
+  }
 
   async function fetchAllItems() {
     console.log('fetching all items')
@@ -27,6 +40,11 @@ function Dashboard() {
   }
 
   useEffect(() => {
+    loginRequired();
+    tableBookingRequired();
+  }, []);
+
+  useEffect(() => {
     if (searchText.length > 0) {
       fetchSpecificItems()
     }
@@ -35,23 +53,20 @@ function Dashboard() {
     }
   }, [searchText])
 
-  useEffect(() => {
-    loginRequired()
-  }, [])
 
   return (
     <div>
-      <Navbar user={currentUser?.name} />
-
+      <CartNavBar onClickCart={toggleModalCart} />
+      <Cart onClickCart={toggleModalCart} isCartOpen={isCartOpen} />
       <div className="option-btns">
-        {currentUser && FoodItemList.FoodItemCart.length > 0 && (
-          <a href="/myCart" className="btn m-2">
+        {currentUser  &&  (
+          <a href="/mycart" className="btn m-2">
             Go to your cart
           </a>
         )}
 
         {/* show available tables */}
-        <a className="btn m-2" href="/bookTable">Show available tables</a>
+        <a className="btn m-2" href="/tables">Show available tables</a>
 
         {/* show my orders */}
         <a className="btn m-2" href="/myOrders">Show my orders</a>
@@ -70,7 +85,7 @@ function Dashboard() {
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)} />
       </div>
-      <div className="show-items-container m-4">
+      {/* <div className="show-items-container m-4">
         <div className="row ">
           {currentFoodItems.map((item, index) => {
             return (
@@ -85,7 +100,24 @@ function Dashboard() {
             );
           })}
         </div>
-      </div>
+      </div> */}
+      <div className="food-items-result  text-center">
+          <div className="container-fluid">
+            <div className="row">
+              {currentFoodItems?.map((fooditem, index) => {
+                return (
+                  <FoodItemCard
+                    key={index}
+                    title={fooditem.title}
+                    price={fooditem.price}
+                    category={fooditem.category}
+                    imgUrl={fooditem.imgUrl}
+                  />
+                );
+              })}
+            </div>
+          </div>
+        </div>
     </div>
   )
 }

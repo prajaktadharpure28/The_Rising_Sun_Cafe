@@ -2,24 +2,38 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import "./FoodItemCard.css"
 
-function FoodItemCard({ category, title, price, description, image }) {
+// function FoodItemCard({ category, title, price, description, image }) {
+//   const [quantity, setQuantity] = useState(1);
+
+//   if (quantity < 0) {
+//     setQuantity(0);
+//   }
+
+//   async function AddToCart() {
+//     const cartObj = {
+//       name: title,
+//       price: price,
+//       quantity: quantity,
+//     };
+const FoodItemCard = (props) => {
   const [quantity, setQuantity] = useState(1);
 
-  if (quantity < 0) {
-    setQuantity(0);
-  }
-
-  async function AddToCart() {
-    const cartObj = {
-      name: title,
-      price: price,
+  async function addToList() {
+    const listObj = {
+      name: props.title,
+      price: props.price,
       quantity: quantity,
+      total: props.price * quantity,
     };
 
-    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
-    existingCart.push(cartObj);
-    localStorage.setItem("cart", JSON.stringify(existingCart));
-    console.log(existingCart);
+    //Add list to local storage
+    const existingList = JSON.parse(localStorage.getItem('list')) || [];
+    existingList.push(listObj);
+    localStorage.setItem('list', JSON.stringify(existingList));
+    // const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+    // existingCart.push(cartObj);
+    // localStorage.setItem("cart", JSON.stringify(existingCart));
+    // console.log(existingCart);
 
     await Swal.fire ({
       title: "Added to Cart",
@@ -38,18 +52,21 @@ function FoodItemCard({ category, title, price, description, image }) {
     <div className="cards col-md-3">
       <div className="card-container">
         <div className="card" style={{ width: "18rem" }}>
-          <img src={image} className="card-img-top" alt="..." />
+          <img src={props.imgUrl} className="card-img-top" alt="..." />
           <div className="card-body">
-            <h5 className="card-title">{title}</h5>
-            <p className="card-desc">{description || title} </p>
-            <p className="card-text">Only at ₹{price}/-</p>
-
+            <h5 className="card-title">{props.title}</h5>
+            <p className="card-desc">{props.description} </p>
+            <p className="card-text">Only at ₹{props.price}/-</p>
+            <span>{props.category}</span>
             {/*increment and decreament buttons for quantity */}
             <div className="d-flex">
               <button
                 className="card-btn m-2 fs-4 qty-change-btn"
-                onClick={() => {
-                  setQuantity(quantity - 1);
+                onClick={(e) => {
+                  // setQuantity(quantity - 1);
+                  {
+                    quantity - 1 && setQuantity(quantity - 1);
+                  }
                 }}
               >
                 -
@@ -59,7 +76,7 @@ function FoodItemCard({ category, title, price, description, image }) {
               </p>
               <button
                 className="card-btn m-2 fs-4 qty-change-btn"
-                onClick={() => {
+                onClick={(e) => {
                   setQuantity(quantity + 1);
                 }}
               >
@@ -70,9 +87,7 @@ function FoodItemCard({ category, title, price, description, image }) {
             <button
               href="#"
               className="card-btn"
-              onClick={() => {
-                AddToCart();
-              }}
+              onClick={addToList}
             >
               Add to Cart
             </button>

@@ -12,6 +12,7 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [role, setRole] = useState('user')
 
   useEffect(() => {
@@ -51,6 +52,7 @@ function Signup() {
     setEmail('')
     setPhone('')
     setPassword('')
+    setConfirmPassword('')
   }
 
   return (
@@ -111,6 +113,18 @@ function Signup() {
                     value={password} onChange={(e) => {setPassword(e.target.value) }}
                   />
                 </div>
+
+                <div className="mb-3">
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="confirmPassword"
+                    placeholder="Confirm Password"
+                    value={confirmPassword} onChange={(e) => {setConfirmPassword(e.target.value) }}
+                  />
+                </div>
+                
+
                   <button className="signup-page-btn btn w-100 mb-5" type="button" onClick={signupUser}>
                     <i className="fa-solid fa-right-to-bracket"></i> Signup 
                   </button>

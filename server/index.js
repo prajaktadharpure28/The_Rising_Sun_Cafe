@@ -17,6 +17,8 @@ mongoose.connect(process.env.MONGODB_URL, ()=>{
     console.log('Connected to MongoDB');
 })
 
+// signup
+
 app.post('/signup', async(req, res)=>{
     const { name, phone, email, password, role} = req.body;
     
@@ -76,6 +78,7 @@ app.post('/signup', async(req, res)=>{
     })
 })
 
+// login
 
 app.post('/login', async(req, res)=>{
     const { email, password } = req.body;
@@ -103,56 +106,7 @@ app.post('/login', async(req, res)=>{
     }
 })
 
-app.post("/createFoodItem", async(req, res)=>{
-    const {title, description, imgUrl, price, category} = req.body;
-    const foodItem = new FoodItem({
-        title: title,
-        description: description,
-        imgUrl: imgUrl,
-        price: price,
-        category: category
-    })
-
-    const savedFoodItem = await foodItem.save();
-
-    res.json({
-        success: true,
-        message: "Food Item created successfully",
-        data: savedFoodItem
-    })
-})
-
-// http://localhost:5000/foodItemsByCategory?category=breakfast
-
-app.get("/foodItemsByCategory", async(req, res)=>{
-    const {category} = req.query;
-
-    const foodItems = await FoodItem.find({
-        category: {$regex: category, $options: 'i'}
-    })
-
-    res.json({
-        success: true,
-        message: "Food Items fetched successfully",
-        data: foodItems
-    })
-})
-
-// http://localhost:5000/foodItems?title=pizza
-
-app.get("/foodItems", async(req, res)=>{
-    const {title} = req.query;
-
-    const foodItems = await FoodItem.find({
-        title: {$regex: title, $options: 'i'}
-    })
-
-    res.json({
-        success: true,
-        message: "Food Items fetched successfully",
-        data: foodItems
-    })
-})
+// create table
 
 app.post("/createTable", async(req, res)=>{
     const {tableNumber} = req.body;
@@ -230,6 +184,59 @@ app.get("/availableTable", async (req, res)=>{
     })
 })
 
+// Food items
+
+app.post("/createFoodItem", async(req, res)=>{
+    const {title, description, imgUrl, price, category} = req.body;
+    const foodItem = new FoodItem({
+        title: title,
+        description: description,
+        imgUrl: imgUrl,
+        price: price,
+        category: category
+    })
+
+    const savedFoodItem = await foodItem.save();
+
+    res.json({
+        success: true,
+        message: "Food Item created successfully",
+        data: savedFoodItem
+    })
+})
+
+// http://localhost:5000/foodItemsByCategory?category=breakfast
+
+app.get("/foodItemsByCategory", async(req, res)=>{
+    const {category} = req.query;
+
+    const foodItems = await FoodItem.find({
+        category: {$regex: category, $options: 'i'}
+    })
+
+    res.json({
+        success: true,
+        message: "Food Items fetched successfully",
+        data: foodItems
+    })
+})
+
+// http://localhost:5000/foodItems?title=pizza
+
+app.get("/foodItems", async(req, res)=>{
+    const {title} = req.query;
+
+    const foodItems = await FoodItem.find({
+        title: {$regex: title, $options: 'i'}
+    })
+
+    res.json({
+        success: true,
+        message: "Food Items fetched successfully",
+        data: foodItems
+    })
+})
+
 app.post("/orderFoodItems", async(req, res)=>{
     const { UserId, tableNumber, items} = req.body;
 
@@ -254,6 +261,66 @@ app.post("/orderFoodItems", async(req, res)=>{
     })
 })
 
+// order food route
+app.post("/order-food", async (req, res) => {
+    const { userId, foodItems, tableNumber } = req.body;
+  
+    // validation of empty fields start here
+    if (!userId) {
+      return res.status(422).json({
+        error: "Please add user id",
+      });
+    }
+    if (!foodItems || foodItems.length === 0) {
+      return res.status(422).json({
+        error: "Please add food items",
+      });
+    }
+    if (!tableNumber) {
+      return res.status(422).json({
+        error: "Please add table number",
+      });
+    }
+    // validation of empty fields end here
+  
+    //check if table exists and is occupied by the user
+    // const table = await Table.findOne({ tableNumber: tableNumber });
+    // if (!table) {
+    //   return res.status(422).json({
+    //     error: "Table does not exist",
+    //   });
+    // }
+    // if (table.occupiedBy !== userId) {
+    //   return res.status(422).json({
+    //     error: "Table is not occupied by you",
+    //   });
+    // }
+  
+    // TODO: feature to add food items //to the cart and then place the order
+  
+    // const orderId = uuidv4(); // npm i uuid
+    const orderId = "ORDER-" + Date.now();
+  
+    // count the number of orders
+    const count = await Order.countDocuments();
+  
+    const order = new Order({
+      userId: userId,
+      foodItems: foodItems,
+      tableNumber: tableNumber,
+      orderId: orderId,
+      orderNumber: count + 1,
+    });
+  
+    const savedOrder = await order.save();
+  
+    res.json({
+      success: true,
+      message: "Order placed successfully",
+      data: savedOrder,
+    });
+  });  
+
 app.get("/order", async (req, res)=>{
     const {orderId} = req.query;
 
@@ -276,6 +343,124 @@ app.get("/ordersByUserId", async(req, res)=>{
         message: "Orders fetched successfully",
         data: orders
     })
+})
+
+// delete item
+app.delete('/item',async(req,res) => {
+    try{
+        let itemId
+        const {id} = req.query
+        itemId = id
+        const item = await FoodItem.findById(itemId)
+        if(!item){
+            return res.status(404).json({
+                success:false,
+                message:"Item not found"
+            })
+        }
+        await FoodItem.findByIdAndDelete(itemId)
+        res.json({
+            success:true,
+            message:"Item deleted successfully"
+        })
+    }catch(err){
+        console.log(err)
+        res.status(500).json({
+            success:false,
+            message:"Internal server error"
+        })
+    }
+})
+
+// update the order by adding or removing food items from the order by the user id
+app.put("/update-order", async (req, res) => {
+    const { userId, foodItems } = req.body;
+  
+    // validation of empty fields start here
+    if (!userId) {
+      return res.status(422).json({
+        error: "Please add user id",
+      });
+    }
+    if (!foodItems || foodItems.length === 0) {
+      return res.status(422).json({
+        error: "Please add food items",
+      });
+    }
+    // validation of empty fields end here
+  
+    const order = await Order.findOne({ userId: userId });
+  
+    if (!order) {
+      return res.status(422).json({
+        error: "Order does not exist",
+      });
+    }
+  
+    //  update the order by just adding the new food items to the existing order
+    order.foodItems = [...order.foodItems, ...foodItems];
+  
+    await order.save();
+  
+    res.json({
+      success: true,
+      message: "Order updated successfully",
+      data: order,
+    });
+  });
+  
+  // get the orders of a user
+  app.get("/user-orders", async (req, res) => {
+    const { userId } = req.query;
+  
+    const userOrders = await Order.findOne({ userId: userId });
+  
+    if (!userOrders) {
+      return res.status(422).json({
+        error: "User orders does not exist",
+      });
+    }
+  
+    res.json({
+      success: true,
+      message: "User orders fetched successfully",
+      data: userOrders,
+    });
+    // add a query string to the url like this: http://localhost:5000/user-orders?userId=60e1b1b0b0b5a8a0f4b0b0a1
+  });
+  
+
+// update item
+app.put('/item',async(req,res) => {
+    try{
+        let itemId
+        const {id} = req.query
+        itemId = id
+        const item = await FoodItem.findById(itemId)
+        if(!item){
+            return res.status(404).json({
+                success:false,
+                message:"Item not found"
+            })
+        }
+        const {title, description, imgUrl, price, category} = req.body;
+        item.title = title
+        item.description = description
+        item.imgUrl = imgUrl
+        item.price = price
+        item.category = category
+        await item.save()
+        res.json({
+            success:true,
+            message:"Item updated successfully"
+        })
+    }catch(err){
+        console.log(err)
+        res.status(500).json({
+            success:false,
+            message:"Internal server error"
+        })
+    }
 })
 
 // api routes ends here

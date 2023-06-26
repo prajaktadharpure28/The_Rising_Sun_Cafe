@@ -4,6 +4,7 @@ import Dashboard from './views/Dashboard/Dashboard'
 import Login from "./views/Login/Login"
 import Signup from "./views/Signup/Signup"
 import Home from './views/Home/Home'
+import MyCart from './views/MyCart/MyCart'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/mycart" element={<MyCart />} />
           </Routes>
       </BrowserRouter>
     </div>

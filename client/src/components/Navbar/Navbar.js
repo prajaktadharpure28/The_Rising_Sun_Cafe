@@ -1,12 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { useState } from 'react'
 import Swal from 'sweetalert2'
 import logo from './../../assets/logo.png'
 import trolley from './../../assets/trolley.png'
+import FoodItemList from "../../util/FoodItemList";
 import "./Navbar.css"
 import { Link } from 'react-router-dom'
 import { currentUser } from './../../util/currentUser'
 
-function Navbar({ user }) {
+function Navbar() {
+  const [foodItemCount, setFoodItemCount] = useState(
+    FoodItemList.FoodItemListCount
+  );
   function logOut() {
     localStorage.removeItem('currentUser')
     window.location.href = '/'
@@ -84,34 +89,39 @@ function Navbar({ user }) {
             {/* add to cart button */}
 
             <div className="d-flex">
-              <Link to="/myCart">
+              {/* <Link to="/myCart">
                 {
-                  currentUser && (
-                    <button type="button" className='cart-btn m-2'>
+                  currentUser ? (
+                    <button type="button" className='cart-btn m-2'
+                      onClick={() => {
+                        window.location.href = "/myCart";
+                      }}>
                       <img
                         src={trolley}
                         alt="cart"
                         className="cart-icon"
+                        
                       />
+                      <span className="cart-count">{foodItemCount}</span>
                     </button>
-                  )
+                  ) : null
                 }
-              </Link>
-            </div>
-            {!currentUser && (
-              <button type="button" className='logout-btn m-2' onClick={Signup}>
-                Signup
-              </button>
-            )}
-            {!currentUser && (
-              <button type="button" className='logout-btn m-2' onClick={Login}>Login</button>
-            )}
+              </Link> */}
 
-            {currentUser && (
-              <button type="button" className='logout-btn m-2' onClick={logoutAlert}>
-                Logout
-              </button>
-            )}
+              {!currentUser ? (
+                <button type="button" className='logout-btn m-2' onClick={Signup}>
+                  Signup
+                </button>
+              ) : null}
+              {!currentUser ? (
+                <button type="button" className='logout-btn m-2' onClick={Login}>Login</button>
+              ) : null}
+              {currentUser ? (
+                <button type="button" className='logout-btn m-2' onClick={logoutAlert}>
+                  Logout
+                </button>
+              ) : null}
+            </div>
           </div>
         </div>
       </nav>
