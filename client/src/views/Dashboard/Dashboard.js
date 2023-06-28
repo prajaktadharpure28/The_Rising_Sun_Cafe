@@ -85,22 +85,6 @@ function Dashboard() {
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)} />
       </div>
-      {/* <div className="show-items-container m-4">
-        <div className="row ">
-          {currentFoodItems.map((item, index) => {
-            return (
-              <FoodItemCard
-                // key={item._id}
-                key={index}
-                title={item.title}
-                description={item.description}
-                price={item.price}
-                image={item.imgURL}
-              />
-            );
-          })}
-        </div>
-      </div> */}
       <div className="food-items-result  text-center">
           <div className="container-fluid">
             <div className="row">

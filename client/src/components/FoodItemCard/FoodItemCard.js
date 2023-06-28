@@ -2,19 +2,6 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import "./FoodItemCard.css"
 
-// function FoodItemCard({ category, title, price, description, image }) {
-//   const [quantity, setQuantity] = useState(1);
-
-//   if (quantity < 0) {
-//     setQuantity(0);
-//   }
-
-//   async function AddToCart() {
-//     const cartObj = {
-//       name: title,
-//       price: price,
-//       quantity: quantity,
-//     };
 const FoodItemCard = (props) => {
   const [quantity, setQuantity] = useState(1);
 
@@ -30,11 +17,6 @@ const FoodItemCard = (props) => {
     const existingList = JSON.parse(localStorage.getItem('list')) || [];
     existingList.push(listObj);
     localStorage.setItem('list', JSON.stringify(existingList));
-    // const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
-    // existingCart.push(cartObj);
-    // localStorage.setItem("cart", JSON.stringify(existingCart));
-    // console.log(existingCart);
-
     await Swal.fire ({
       title: "Added to Cart",
       text: "Item added to cart successfully",

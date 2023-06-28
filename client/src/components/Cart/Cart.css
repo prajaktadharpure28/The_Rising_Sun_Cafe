@@ -1,5 +1,5 @@
 .cart-container {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Satisfy', cursive;;
   background-color: white;
   padding: 30px 60px;
   max-height: 400px;
@@ -27,28 +27,79 @@
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-.remove-button {
-  background-color: rgb(239, 79, 95);
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 3px 7px;
-  font-size: 14px;
+.remove-button{
+  border-radius: 30px;
+  border: 1px solid #ecc6f8;
+  font-size: 15px;
+  font-family: 'Satisfy', cursive;
+  outline: none;
+  align-items: center;
+  background-color: #8a16b8;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 6px -2px #613e6e;
+  transition: all 0.3s ease-in-out;
+  &:focus {
+    border-color: none;
+  }
 }
 
-.order-btn,
+.remove-button:hover {
+background-color: rgb(250, 137, 137);
+color: #fbfafc;
+border: 1px solid #f9f7fa;
+}
+
 .cancel-btn {
-  background-color: rgb(239, 79, 95);
-  color: #fff;
-  border: none;
-  padding: 7px 12px;
-  border-radius: 7px;
+  border-radius: 30px;
+  border: 1px solid #ecc6f8;
+  font-size: 15px;
+  font-family: 'Satisfy', cursive;
+  outline: none;
+  align-items: center;
+  background-color: #8a16b8;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 6px -2px #613e6e;
+  transition: all 0.3s ease-in-out;
+  &:focus {
+    border-color: none;
+  }
 }
 
-.order-btn:hover,
 .cancel-btn:hover {
-  background-color: rgb(237, 48, 67);
-  color: #fff;
+  background-color: rgb(250, 137, 137);
+  color: #fbfafc;
+  border: 1px solid #f9f7fa;
+}
+
+.order-btn{
+  border-radius: 30px;
+  border: 1px solid #ecc6f8;
+  font-size: 15px;
+  font-family: 'Satisfy', cursive;
+  outline: none;
+  align-items: center;
+  background-color: #8a16b8;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  margin-top: 10px;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 6px -2px #613e6e;
+  transition: all 0.3s ease-in-out;
+  &:focus {
+    border-color: none;
+  }
+}
+.order-btn:hover {
+  background-color: rgb(250, 137, 137);
+  color: #fbfafc;
+  border: 1px solid #f9f7fa;
 }
 
 @media screen and (max-width: 500px) {

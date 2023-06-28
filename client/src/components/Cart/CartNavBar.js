@@ -21,7 +21,7 @@ const CartNavBar = (props) => {
              
             </ul>
             {currentUser && (
-              <form class="d-flex align-items-center">
+              <form className="d-flex align-items-center">
                 <img
                   src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png"
                   alt="profile"

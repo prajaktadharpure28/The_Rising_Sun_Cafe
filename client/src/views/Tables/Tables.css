@@ -1,0 +1,120 @@
+.table-row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #ccc;
+}
+.tableCard{
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #ccc;
+}
+
+.tableCard:hover{
+  background-color: #fff;
+  color: #8a16b8;
+  border: 1px solid #8a16b8;
+  box-shadow: 0 0 10px #8a16b8;
+}
+
+.tableNumber{
+  font-family: 'Satisfy', cursive;
+  font-size: 20px;
+  color: #8a16b8;
+  text-align: center;
+}
+
+.btn{
+    border-radius: 30px;
+    border: 1px solid #ecc6f8;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Satisfy', cursive;
+    outline: none;
+    align-items: center;
+    background-color: #8a16b8;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 6px -2px #613e6e;
+    transition: all 0.3s ease-in-out;
+
+    &:focus {
+        border-color: none;
+    }
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #8a16b8;
+    border: 1px solid #8a16b8;
+}
+
+.text-table{
+  font-family: 'Satisfy', cursive;
+  font-size: 40px;
+  color: #8a16b8;
+  text-align: center;
+  margin: 20px;
+  border-radius: 40px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px #ccc;
+  border: 1px solid #ccc;
+}
+
+/* responsiveness at 765 */
+
+@media (max-width: 765px) {
+  .row{
+    flex-direction: column;
+    align-items: center;
+  }
+  .tableCard{
+    padding: 10px;
+    width: 500px;
+  }
+}
+
+/* responsiveness at 500 */
+
+@media (max-width: 565px) {
+  .tableCard{
+    width: 300px;
+  }
+}
+
+/* responsiveness at 400 */
+
+@media (max-width: 400px) {
+  .tableCard{
+    width: 250px;
+  }
+}
+
+/* responsiveness at 300 */
+
+@media (max-width: 300px) {
+  .tableCard{
+    width: 200px;
+  }
+}
+
+.bg-tableCard{
+  background-color: #e7b2fc;
+  color: #fff;
+}
+
+.bg-tableCard:hover{
+  background-color: #fff;
+  color: #8a16b8;
+  border: 1px solid #8a16b8;
+}

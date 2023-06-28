@@ -30,11 +30,28 @@ const Cart = (props) => {
     }
   }
 
+  // dialog box for remove item
+
   const removeItem = (index) => {
-    myFoodListItems.splice(index, 1);
-    localStorage.setItem('list', JSON.stringify(myFoodListItems));
-    window.location.reload();
+    swal.fire({
+      title: 'Are you sure?',
+      text: 'You will not be able to recover this item!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!'
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          myFoodListItems.splice(index, 1);
+          localStorage.setItem('list', JSON.stringify(myFoodListItems));
+          window.location.reload();
+          swal.fire('Deleted!', 'Your item has been deleted.', 'success');
+        } else if (result.dismiss === swal.DismissReason.cancel) {
+          swal.fire('Cancelled', 'Your item is safe :)', 'error');
+        }
+      });
   };
+
 
   return (
     <div>

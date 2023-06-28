@@ -32,16 +32,28 @@ function MyCart() {
     }
   }
 
-  // remove item from cart
+    // dialog box for remove item
 
-  async function removeItemFromCart(item) {
-    const existingCart = JSON.parse(localStorage.getItem("list")) || [];
-    const updatedCart = existingCart.filter((foodItem) => {
-      return foodItem.name !== item.name;
-    });
-    localStorage.setItem("list", JSON.stringify(updatedCart));
-    window.location.reload();
-  }
+    const removeItem = (index) => {
+      Swal
+        .fire({
+          title: 'Are you sure?',
+          text: 'You will not be able to recover this item!',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Yes, delete it!'
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            myFoodListItems.splice(index, 1);
+            localStorage.setItem('list', JSON.stringify(myFoodListItems));
+            window.location.reload();
+            Swal.fire('Deleted!', 'Your item has been deleted.', 'success');
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+            Swal.fire('Cancelled', 'Your item is safe :)', 'error');
+          }
+        });
+    }
   // set quantity
 
   function setQuantity(item, quantity) {
@@ -94,7 +106,7 @@ function MyCart() {
                             <td>
                               <button
                                 className="btn-remove"
-                                onClick={() => removeItemFromCart(item)}
+                                onClick={removeItem}
                               >
                                 Remove
                               </button>
