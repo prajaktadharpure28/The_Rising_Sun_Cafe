@@ -6,6 +6,7 @@ import Signup from "./views/Signup/Signup"
 import Home from './views/Home/Home'
 import MyCart from './views/MyCart/MyCart'
 import Tables from './views/Tables/Tables'
+import Scanner from './views/Scanner/Scanner'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/mycart" element={<MyCart />} />
           <Route path="/tables" element={<Tables />} />
+          <Route path="/scanner" element={<Scanner />} />
           </Routes>
       </BrowserRouter>
     </div>

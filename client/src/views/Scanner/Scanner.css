@@ -1,0 +1,37 @@
+.btn{
+    width: 20vw;
+    border-radius: 30px;
+    border: 1px solid #ecc6f8;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'Satisfy', cursive;
+    outline: none;
+    align-items: center;
+    background-color: #8a16b8;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 6px -2px #613e6e;
+    transition: all 0.3s ease-in-out;
+
+    &:focus {
+        border-color: none;
+    }
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #8a16b8;
+    border: 1px solid #8a16b8;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.video{
+    margin-top: 40px;
+}

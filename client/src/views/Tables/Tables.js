@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Tables.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Navbar from '../../components/Navbar/Navbar';
 import AvailableTable from './../../assets/table.png';
 import { loginRequired } from '../../util/loginRequired';
 import { currentUser } from '../../util/currentUser';
@@ -51,6 +52,7 @@ const Tables = () => {
 
   return (
     <div>
+      <Navbar />
       <div className="text-table">
         <h1>Available Tables</h1>
       </div>

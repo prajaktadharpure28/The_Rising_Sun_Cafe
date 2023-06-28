@@ -1,6 +1,8 @@
 import React from 'react'
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom'
 import logo from './../../assets/logo.png'
+import QRCode from './../../assets/qr-code.png'
 import "./Navbar.css"
 import { currentUser } from './../../util/currentUser'
 
@@ -54,6 +56,15 @@ function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            {/* qr code img */}
+              <li className="nav-item">
+                <Link 
+                  className="nav-link active"
+                  to="/scanner"
+                >
+                  <img className="qr-code" src={QRCode} alt="qr-code" />
+                </Link>
+              </li>
             </ul>
             {currentUser && (
               <form className="d-flex align-items-center">

@@ -22,6 +22,17 @@
     margin-right: 10px;
 }
 
+.qr-code{
+    width: 40px;
+    border-radius: 10%;
+    box-shadow: 0px 4px 6px -2px rgb(177, 138, 194);
+    background-color: white;
+}
+
+.qr-code:hover{
+    box-shadow: 0px 4px 6px -2px rgb(232, 189, 250);
+}
+
 .profile-name {
     font-family: 'Satisfy', cursive;
     font-size: 1.5rem;
