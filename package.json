@@ -12,5 +12,8 @@
     "start": "npm run build && npm run server"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "engines": {
+    "node": ">=14 <15"
+  }
 }
