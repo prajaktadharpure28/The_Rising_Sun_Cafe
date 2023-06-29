@@ -57,14 +57,16 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             {/* qr code img */}
+            {currentUser &&(
               <li className="nav-item">
-                <Link 
-                  className="nav-link active"
-                  to="/scanner"
-                >
-                  <img className="qr-code" src={QRCode} alt="qr-code" />
-                </Link>
-              </li>
+              <Link 
+                className="nav-link active"
+                to="/scanner"
+              >
+                <img className="qr-code" src={QRCode} alt="qr-code" />
+              </Link>
+            </li>
+            )}
             </ul>
             {currentUser && (
               <form className="d-flex align-items-center">

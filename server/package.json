@@ -17,6 +17,8 @@
     "md5": "^2.3.0",
     "mongoose": "^6.8.4",
     "nodemon": "^2.0.20",
-    "qr-scanner": "^1.4.2"
+    "path": "^0.12.7",
+    "qr-scanner": "^1.4.2",
+    "validator": "^13.9.0"
   }
 }

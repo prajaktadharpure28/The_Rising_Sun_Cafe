@@ -1,7 +1,11 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import path from 'path';
+const __dirname = path.resolve();
+
 dotenv.config();
+mongoose.set('strictQuery', false);
 
 import User from './models/User.js';
 import FoodItem from './models/FoodItem.js';
@@ -280,6 +284,14 @@ app.post("/orderFoodItems", async (req, res) => {
 })
 
 // api routes ends here
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+  
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+    });
+  }  
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
