@@ -35,14 +35,13 @@ function MyCart() {
     // dialog box for remove item
 
     const removeItem = (index) => {
-      Swal
-        .fire({
-          title: 'Are you sure?',
-          text: 'You will not be able to recover this item!',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonText: 'Yes, delete it!'
-        })
+      Swal.fire({
+        title: 'Are you sure?',
+        text: 'You will not be able to recover this item!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!'
+      })
         .then((result) => {
           if (result.isConfirmed) {
             myFoodListItems.splice(index, 1);
@@ -106,7 +105,9 @@ function MyCart() {
                             <td>
                               <button
                                 className="btn-remove"
-                                onClick={removeItem}
+                                onClick={() => {
+                                  removeItem(index);
+                                }}
                               >
                                 Remove
                               </button>
@@ -118,7 +119,7 @@ function MyCart() {
                   </table>
                   <div className="text-right">
                     <button
-                      className="btn btn-primary"
+                      className="btn"
                       onClick={placeOrder}
                     >
                       Place Order

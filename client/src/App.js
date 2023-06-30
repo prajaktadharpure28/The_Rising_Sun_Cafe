@@ -7,6 +7,7 @@ import Home from './views/Home/Home'
 import MyCart from './views/MyCart/MyCart'
 import Tables from './views/Tables/Tables'
 import Scanner from './views/Scanner/Scanner'
+import Admin from './admin/views/Admin/Admin';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/mycart" element={<MyCart />} />
           <Route path="/tables" element={<Tables />} />
           <Route path="/scanner" element={<Scanner />} />
+          <Route path="/admin" element={<Admin />} />
           </Routes>
       </BrowserRouter>
     </div>
