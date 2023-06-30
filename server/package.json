@@ -20,5 +20,8 @@
     "path": "^0.12.7",
     "qr-scanner": "^1.4.2",
     "validator": "^13.9.0"
+  },
+  "engines": {
+    "node": ">=14 <15"
   }
 }

@@ -46,9 +46,9 @@ const FoodItemCard = (props) => {
                 className="card-btn m-2 fs-4 qty-change-btn"
                 onClick={(e) => {
                   // setQuantity(quantity - 1);
-                  {
+                  
                     quantity - 1 && setQuantity(quantity - 1);
-                  }
+                  
                 }}
               >
                 -

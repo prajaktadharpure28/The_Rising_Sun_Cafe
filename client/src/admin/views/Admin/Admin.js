@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './Admin.css';
-import { currentUser } from "../../../util/currentUser";
+// import { currentUser } from "../../../util/currentUser";
 import { isUser } from "../../../util/role";
 import { loginRequired } from "../../../util/loginRequired";
 import { tableBookingRequired } from "../../../util/tableBookingRequried";
