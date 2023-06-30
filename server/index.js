@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import path from 'path';
+import cors from 'cors';
 const __dirname = path.resolve();
 
 dotenv.config();
@@ -14,6 +15,12 @@ import Order from './models/Order.js';
 
 const app = express();
 app.use(express.json());
+
+app.use(cors(
+    {
+        origin: ['https://rising-sun-cafe.onrender.com/']
+    }
+));
 
 const PORT = process.env.PORT || 5000;
 
@@ -285,13 +292,13 @@ app.post("/orderFoodItems", async (req, res) => {
 
 // api routes ends here
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
   
-    app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
-    });
-  }  
+//     app.get('*', (req, res) => {
+//       res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+//     });
+//   }  
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

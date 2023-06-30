@@ -112,7 +112,7 @@ function Signup() {
                     value={password} onChange={(e) => {setPassword(e.target.value) }}
                   />
                 </div>
-                  <button className="signup-page-btn btn w-100 mb-5" type="button" onClick={signupUser}>
+                  <button className="signup-page-btn w-100 mb-5" type="button" onClick={signupUser}>
                     <i className="fa-solid fa-right-to-bracket"></i> Signup 
                   </button>
                 <div className="text-center">

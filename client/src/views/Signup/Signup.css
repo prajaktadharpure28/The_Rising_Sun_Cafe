@@ -42,7 +42,7 @@
     text-decoration: none;
 }
 
-.btn{
+.signup-page-btn{
     border-radius: 30px;
     border: 1px solid #ecc6f8;;
     padding: 5px;
@@ -63,7 +63,7 @@
         border-color: none;
     }
 }
-.btn:hover{
+.signup-page-btn:hover{
     color: #fff;
     border-color: #de93fa;
     box-shadow: 0px 4px 6px -2px #de93fa;

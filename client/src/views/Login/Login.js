@@ -73,7 +73,7 @@ function Login() {
                     value={password} onChange={(e) => {setPassword(e.target.value) }}
                   />
                 </div>
-                <button className="login-page-btn w-100 mb-3 btn m-2" type="button" onClick={checkLogin}>
+                <button className="login-page-btn w-100 mb-3 m-2" type="button" onClick={checkLogin}>
                   <i className="fa-solid fa-right-to-bracket"></i> Login
                 </button>
 
