@@ -1,5 +1,5 @@
 .cart-container {
-  font-family: 'Satisfy', cursive;;
+  
   background-color: white;
   padding: 30px 60px;
   max-height: 400px;
@@ -31,7 +31,7 @@
   border-radius: 30px;
   border: 1px solid #ecc6f8;
   font-size: 15px;
-  font-family: 'Satisfy', cursive;
+  
   outline: none;
   align-items: center;
   background-color: #8a16b8;
@@ -56,7 +56,7 @@ border: 1px solid #f9f7fa;
   border-radius: 30px;
   border: 1px solid #ecc6f8;
   font-size: 15px;
-  font-family: 'Satisfy', cursive;
+  
   outline: none;
   align-items: center;
   background-color: #8a16b8;
@@ -81,7 +81,7 @@ border: 1px solid #f9f7fa;
   border-radius: 30px;
   border: 1px solid #ecc6f8;
   font-size: 15px;
-  font-family: 'Satisfy', cursive;
+  
   outline: none;
   align-items: center;
   background-color: #8a16b8;

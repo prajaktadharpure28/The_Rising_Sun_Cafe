@@ -25,7 +25,7 @@
 }
 
 .tableNumber{
-  font-family: 'Satisfy', cursive;
+  
   font-size: 20px;
   color: #8a16b8;
   text-align: center;
@@ -36,7 +36,7 @@
     border: 1px solid #ecc6f8;
     padding: 10px;
     font-size: 20px;
-    font-family: 'Satisfy', cursive;
+    
     outline: none;
     align-items: center;
     background-color: #8a16b8;
@@ -59,7 +59,7 @@
 }
 
 .text-table{
-  font-family: 'Satisfy', cursive;
+  
   font-size: 40px;
   color: #8a16b8;
   text-align: center;

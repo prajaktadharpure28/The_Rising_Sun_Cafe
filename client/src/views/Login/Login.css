@@ -1,5 +1,5 @@
 .brand-name{
-    font-family: 'Satisfy', cursive;
+    
     font-size: 2rem;
     color: #8a16b8;
     text-decoration: none;
@@ -13,7 +13,7 @@
 }
 
 .brand-name-1{
-    font-family: 'Satisfy', cursive;
+    
     color: #8a16b8;
     text-decoration: none;
     margin-left: 10px;
@@ -49,7 +49,7 @@
     margin: 3px;
     width: 120px;
     font-size: 20px;
-    font-family: 'Satisfy', cursive;
+    
     outline: none;
     align-items: center;
     background-color: #8a16b8;
@@ -71,7 +71,7 @@
 
 .form-control{
     text-align: center;
-    font-family: 'Satisfy', cursive;
+    
     font-size: 20px;
     padding: 4px;
     margin: 3px;
