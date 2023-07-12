@@ -47,5 +47,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://the-rising-sun-cafe.onrender.com/"
+  "proxy": "http://localhost:5000/"
 }
