@@ -18,15 +18,15 @@ export const isUser = () => {
     }
 };
 
-export const isUserAdmin = () => {
-    if (!isAdmin()){
-        swal.fire({
-            title: 'Error',
-            text: 'You are not authorized to access this page',
-            icon: 'error',
-            button: 'OK',
-        }).then(() => {
-            window.location.href = '/';
-        })
-    }
-}
+// export const isUserAdmin = () => {
+//     if (!isAdmin()){
+//         swal.fire({
+//             title: 'Error',
+//             text: 'You are not authorized to access this page',
+//             icon: 'error',
+//             button: 'OK',
+//         }).then(() => {
+//             window.location.href = '/';
+//         })
+//     }
+// }
