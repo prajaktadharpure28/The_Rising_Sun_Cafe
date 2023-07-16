@@ -25,6 +25,7 @@ const Tables = () => {
   async function bookThisTable(e) {
     const response = await axios.post('/bookTable', {
       tableNumber: e.target.value,
+      capacity: e.target.value,
       userId: currentUser._id,
     });
 
@@ -61,15 +62,22 @@ const Tables = () => {
           return (
             <div key={index} className={`col-md-3 tableCard ${table.occupied && 'bg-tableCard'}`}>
               <p className="tableNumber">Table Number - {table.tableNumber}</p>
+              <div className="mt-3">
+                <b className="tableCapacity">Capacity: {table.capacity}</b>
+              </div>
               <img src={AvailableTable} className="table" alt="random" />
               <br></br>
               <button
-              className={`btn ${table.occupied}`}
+                className={`btn ${table.occupied}`}
                 disabled={table.occupied}
                 value={table.tableNumber}
                 onClick={bookThisTable}>
                 Book Table
               </button>
+              {/* table location */}
+              <div className="mt-3">
+                <b className="tableLocation">Location: {table.tableLocation}</b>
+                </div>
             </div>
           );
         })}

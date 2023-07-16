@@ -1,4 +1,4 @@
-.table-row{
+.admin-row{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -8,7 +8,7 @@
   background-color: #fff;
   box-shadow: 0 0 10px #ccc;
 }
-.tableCard{
+.adminCard{
   margin: 20px;
   padding: 20px;
   border: 1px solid #ccc;
@@ -17,33 +17,21 @@
   box-shadow: 0 0 10px #ccc;
 }
 
-.tableCard:hover{
+.adminCard:hover{
   background-color: #fff;
   color: #8a16b8;
   border: 1px solid #8a16b8;
   box-shadow: 0 0 10px #8a16b8;
 }
 
-.tableNumber{
+.adminNumber{
   
   font-size: 20px;
   color: #8a16b8;
   text-align: center;
 }
 
-.tableCapacity{
-  font-size: 18px;
-  color: #8a16b8;
-  text-align: center;
-}
-
-.tableLocation{
-  font-size: 15px;
-  color: #8a16b8;
-  text-align: center;
-}
-
-.btn{
+.admin_btn{
     border-radius: 30px;
     border: 1px solid #ecc6f8;
     padding: 10px;
@@ -64,13 +52,13 @@
     }
 }
 
-.btn:hover {
+.admin_btn:hover {
     background-color: #fff;
     color: #8a16b8;
     border: 1px solid #8a16b8;
 }
 
-.text-table{ 
+.text-admin{
   font-size: 40px;
   color: #8a16b8;
   text-align: center;
@@ -82,6 +70,15 @@
   border: 1px solid #ccc;
 }
 
+.admin_img{
+  width: 80%;
+}
+
+.admin_img:hover{
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
 /* responsiveness at 765 */
 
 @media (max-width: 765px) {
@@ -89,7 +86,7 @@
     flex-direction: column;
     align-items: center;
   }
-  .tableCard{
+  .adminCard{
     padding: 10px;
     width: 500px;
   }
@@ -98,7 +95,7 @@
 /* responsiveness at 500 */
 
 @media (max-width: 565px) {
-  .tableCard{
+  .adminCard{
     width: 300px;
   }
 }
@@ -106,7 +103,7 @@
 /* responsiveness at 400 */
 
 @media (max-width: 400px) {
-  .tableCard{
+  .adminCard{
     width: 250px;
   }
 }
@@ -114,17 +111,17 @@
 /* responsiveness at 300 */
 
 @media (max-width: 300px) {
-  .tableCard{
+  .adminCard{
     width: 200px;
   }
 }
 
-.bg-tableCard{
+.bg-adminCard{
   background-color: #e7b2fc;
   color: #fff;
 }
 
-.bg-tableCard:hover{
+.bg-adminCard:hover{
   background-color: #fff;
   color: #8a16b8;
   border: 1px solid #8a16b8;

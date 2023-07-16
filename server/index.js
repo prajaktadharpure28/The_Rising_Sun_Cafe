@@ -114,7 +114,9 @@ app.post('/login', async (req, res) => {
 // create table
 
 app.post('/table', async (req, res) => {
-    const { tableNumber } = req.body;
+    const { tableNumber,
+        capacity,
+        tableLocation } = req.body;
   
     const existingTable = await Table.findOne({ tableNumber: tableNumber });
   
@@ -127,7 +129,10 @@ app.post('/table', async (req, res) => {
   
     const table = new Table({
       tableNumber: tableNumber,
-      occupied: false,
+      capacity: capacity,
+        tableLocation: tableLocation,
+        occupancyStatus: 0 // set to zero as it is not booked yet
+        
     });
   
     const createdTable = await table.save();

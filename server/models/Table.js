@@ -35,11 +35,13 @@ const {Schema,model} =mongoose
 
 const tableSchema = new Schema({
   tableNumber: Number,
+  capacity: Number,
   occupied: Boolean,
   occupiedBy: {
     type: Schema.Types.ObjectId,
     ref: 'User',
   },
+  tableLocation: String,
 });
 
 const Table = model('Table', tableSchema);
